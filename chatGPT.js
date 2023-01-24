@@ -84,6 +84,9 @@ function verifyToken() {
       "User Name: " + loginUserDetails[loginUserDetails.length - 1].name;
     document.querySelector("#callsLeft").textContent =
       " No of calls left: " + --noOfCallsLeft;
+      const Msg = new SpeechSynthesisUtterance();
+      Msg.text = document.querySelector("#answer").textContent;
+      window.speechSynthesis.speak(Msg);
   } else if (noOfCallsLeft == 0) {
     document.querySelector("#msg").textContent = "Alloted calls already used!";
     document.querySelector("#msg").style.color = "red";
